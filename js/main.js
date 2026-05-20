@@ -29,7 +29,7 @@ form.addEventListener('submit', function(e) {
     // Simular delay de servidor
     setTimeout(() => {
         // Aquí iría el código real de envío (EmailJS, Formspree, etc.)
-        alert('¡Presupuesto enviado correctamente! Te contactaremos en 24hs.');
+        alert('¡Presupuesto enviado correctamente! Te contactaremos a la brevedad.');
         form.reset();
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
