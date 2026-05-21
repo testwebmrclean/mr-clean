@@ -159,3 +159,23 @@ document.querySelectorAll('input, select, textarea').forEach(input => {
         this.style.borderColor = 'var(--azul-principal)';
     });
 });
+
+const form = document.getElementById('cotizacion-form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        'service_jirwvmd',
+        'template_uv80ep6',
+        this
+    )
+    .then(() => {
+        alert('Cotización enviada correctamente');
+        form.reset();
+    })
+    .catch((error) => {
+        alert('Error al enviar la cotización');
+        console.log(error);
+    });
+});
