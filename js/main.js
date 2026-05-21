@@ -13,29 +13,51 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
-// ===== FORMULARIO COTIZACION =====
+// ===== FORMULARIO COTIZACION EMAILJS =====
+
+emailjs.init("WWQv87faFmuqx5lwO");
+
 const form = document.getElementById('cotizacion-form');
 
 form.addEventListener('submit', function(e) {
+
     e.preventDefault();
-    
-    // Simular envío
+
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    
+
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
-    
-    // Simular delay de servidor
-    setTimeout(() => {
-        // Aquí iría el código real de envío (EmailJS, Formspree, etc.)
-        alert('¡Presupuesto enviado correctamente! Te contactaremos a la brevedad.');
+
+    emailjs.sendForm(
+        'service_jirwvmd',
+        'template_uv80ep6',
+        this
+    )
+
+    .then(() => {
+
+        alert('¡Cotización enviada correctamente!');
+
         form.reset();
+
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-    }, 2000);
-});
 
+    })
+
+    .catch((error) => {
+
+        console.log('ERROR EMAILJS:', error);
+
+        alert('Hubo un error al enviar la cotización.');
+
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+
+    });
+
+});
 // ===== SMOOTH SCROLL PARA ANCLAS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
