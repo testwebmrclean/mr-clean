@@ -655,6 +655,25 @@ input:focus, select:focus, textarea:focus {
     text-decoration: none;
 }
 
+/* ===== TRABAJA CON NOSOTROS ===== */
+
+.trabaja-nosotros {
+    display: inline-block;
+    margin-top: 0.1rem;
+
+    color: var(--white);
+    text-decoration: none;
+
+    font-weight: 600;
+    font-size: 1rem;
+
+    transition: color 0.3s ease;
+}
+
+.trabaja-nosotros:hover {
+    color: var(--azul-principal);
+}
+
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float {
     position: fixed;
