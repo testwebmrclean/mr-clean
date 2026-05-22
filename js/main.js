@@ -112,17 +112,21 @@ let currentImage = 0;
 const heroSlider = document.getElementById("hero-slider");
 
 setInterval(() => {
-    currentImage++;
-
-    if (currentImage >= heroImages.length) {
-        currentImage = 0;
-    }
 
     heroSlider.style.opacity = 0;
 
     setTimeout(() => {
+
+        currentImage++;
+
+        if (currentImage >= heroImages.length) {
+            currentImage = 0;
+        }
+
         heroSlider.src = heroImages[currentImage];
-        heroSlider.style.opacity = 2;
+
+        heroSlider.style.opacity = 1;
+
     }, 400);
 
 }, 5000);
